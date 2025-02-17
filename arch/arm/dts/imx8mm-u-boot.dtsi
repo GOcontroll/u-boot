@@ -79,7 +79,7 @@
 						align-end = <4>;
 						filename = "u-boot-spl.bin";
 					};
-
+#ifdef CONFIG_IMX8M_LPDDR4
 					ddr-1d-imem-fw {
 						filename = "lpddr4_pmu_train_1d_imem.bin";
 						align-end = <4>;
@@ -103,6 +103,19 @@
 						align-end = <4>;
 						type = "blob-ext";
 					};
+#else
+					ddr-1d-imem-fw {
+						filename = "ddr3_imem_1d.bin";
+						align-end = <4>;
+						type = "blob-ext";
+					};
+
+					ddr-1d-dmem-fw {
+						filename = "ddr3_dmem_1d.bin";
+						align-end = <4>;
+						type = "blob-ext";
+					};
+#endif
 				};
 			};
 #ifdef CONFIG_IMX_HAB

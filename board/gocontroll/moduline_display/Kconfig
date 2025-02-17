@@ -1,0 +1,15 @@
+if TARGET_MODULINE_DISPLAY
+
+config SYS_BOARD
+	default "moduline_display"
+
+config SYS_VENDOR
+	default "gocontroll"
+
+config SYS_CONFIG_NAME
+	default "moduline_display"
+
+config IMX_CONFIG
+	default "board/GOcontroll/moduline_headless/imximage-tx8p-ml81.cfg"
+
+endif

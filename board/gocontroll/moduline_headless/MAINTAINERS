@@ -1,0 +1,6 @@
+GOCONTROLL MODULINE HEADLESS BOARD
+M:	Maud Spierings <maudspierings@gocontroll.com>
+S:	Maintained
+F:	board/gocontroll/moduline_headless/
+F:	include/configs/moduline-headless.h
+F:	configs/moduline_headless_defconfig

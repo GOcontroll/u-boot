@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+/*
+ * Copyright (C) 2025 Maud Spierings <maudspierings@gocontroll.com>
+ */
+
+/dts-v1/;
+
+#include "imx8mm-tx8m-1610.dtsi"
+
+/ {
+	model = "GOcontroll Moduline IV/Mini";
+	compatible = "gocontroll,moduline-headless", "fsl,imx8mm";
+};
+
+&uart3 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart3>;
+	status = "okay";
+};
+
+&iomuxc {
+	pinctrl_uart3: uart3grp {
+		fsl,pins = <
+			MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX		0x140 /* UART3 RX on pin 62 of COM */
+			MX8MM_IOMUXC_UART3_TXD_UART3_DCE_TX		0x140 /* UART3 TX on pin 61 of COM */
+		>;
+	};
+};
