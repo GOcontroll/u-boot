@@ -372,6 +372,18 @@ config TARGET_LIBREM5
 	select SUPPORT_SPL
 	select IMX8M_LPDDR4
 
+config TARGET_MODULINE_HEADLESS
+	bool "GOcontroll Moduline Mini/IV"
+	select IMX8MM
+	select SUPPORT_SPL
+	select IMX8M_DDR3
+
+config TARGET_MODULINE_DISPLAY
+	bool "GOcontroll Moduline Display"
+	select IMX8MP
+	select SUPPORT_SPL
+	select IMX8M_LPDDR4
+
 endchoice
 
 source "board/advantech/imx8mp_rsb3720a1/Kconfig"
@@ -407,5 +419,7 @@ source "board/technexion/pico-imx8mq/Kconfig"
 source "board/variscite/imx8mn_var_som/Kconfig"
 source "board/toradex/verdin-imx8mm/Kconfig"
 source "board/toradex/verdin-imx8mp/Kconfig"
+source "board/gocontroll/moduline_headless/Kconfig"
+source "board/gocontroll/moduline_display/Kconfig"
 
 endif

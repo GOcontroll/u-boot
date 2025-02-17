@@ -1,0 +1,6 @@
+GOCONTROLL MODULINE DISPLAY BOARD
+M:	Maud Spierings <maudspierings@gocontroll.com>
+S:	Maintained
+F:	board/gocontroll/moduline_display
+F:	include/configs/moduline-display.h
+F:	configs/moduline_display_defconfig

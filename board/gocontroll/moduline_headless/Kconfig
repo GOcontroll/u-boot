@@ -1,0 +1,19 @@
+if TARGET_MODULINE_HEADLESS
+
+config SYS_BOARD
+	default "moduline_headless"
+
+config SYS_VENDOR
+	default "gocontroll"
+
+config SYS_CONFIG_NAME
+	default "moduline_headless"
+
+config IMX_CONFIG
+	default "board/GOcontroll/moduline_headless/imximage-tx8m-1610.cfg"
+
+config ENV_OFFSET
+	hex "Environment offset"
+	default 0x1ff000
+
+endif

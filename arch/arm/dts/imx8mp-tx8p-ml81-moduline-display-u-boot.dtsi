@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+/*
+ * Copyright (C) 2025 Maud Spierings <maudspierings@gocontroll.com>
+ */
+
+#include "imx8mp-u-boot.dtsi"
+
+&pinctrl_uart1 {
+	bootph-pre-ram;
+};
