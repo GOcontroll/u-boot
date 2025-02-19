@@ -12,7 +12,8 @@
 #include <asm/arch/clock.h>
 #include <asm/arch/imx8mp_pins.h>
 #include <asm/arch/sys_proto.h>
-#include <asm/mach-imx/boot_mode.h> #include <asm/mach-imx/gpio.h>
+#include <asm/mach-imx/boot_mode.h>
+#include <asm/mach-imx/gpio.h>
 #include <asm/mach-imx/iomux-v3.h>
 #include <asm/mach-imx/mxc_i2c.h>
 #include <asm/arch/ddr.h>
