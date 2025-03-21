@@ -10,6 +10,6 @@ config SYS_CONFIG_NAME
 	default "moduline_display"
 
 config IMX_CONFIG
-	default "board/GOcontroll/moduline_headless/imximage-tx8p-ml81.cfg"
+	default "board/gocontroll/moduline_display/imximage-tx8p-ml81.cfg"
 
 endif

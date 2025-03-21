@@ -13,7 +13,7 @@ int board_init(void)
 
 int board_late_init(void)
 {
-	board_late_mmc_env_init();
+	// board_late_mmc_env_init();
 
 	return 0;
 }

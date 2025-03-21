@@ -8,5 +8,5 @@ obj-y += imx8mp_tx8p_ml81.o
 
 ifdef CONFIG_XPL_BUILD
 obj-y += spl.o
-obj-$(CONFIG_IMX8M_LPDDR4) += lpddr4_timing.o
+obj-$(CONFIG_IMX8M_LPDDR4) += lpddr4_timing_tx8p-ml81.o
 endif

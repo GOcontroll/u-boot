@@ -9,54 +9,37 @@
 #include <linux/sizes.h>
 #include <asm/arch/imx-regs.h>
 
-#define CONFIG_FDTADDR		0x43000000
+#define CFG_SYS_UBOOT_BASE (QSPI0_AMBA_BASE + CONFIG_SYS_MMCSD_RAW_MODE_U_BOOT_SECTOR * 512)
 
-#define SOC_PREFIX		"imx8m"
-#define SOC_FAMILY		"imx8mp"
+#define BOOT_TARGET_DEVICES(func) \
+	func(MMC, mmc, 2)
 
-#ifdef CONFIG_SPL_BUILD
-#define CONFIG_ENABLE_DDR_TRAINING_DEBUG
-#define CONFIG_USBD_HS
+#include <config_distro_bootcmd.h>
 
-#define CONFIG_MALLOC_F_ADDR	0x95b0000
-
-#define CONFIG_SYS_SPL_MALLOC_START	0x42200000
-#define CONFIG_SYS_SPL_MALLOC_SIZE	SZ_512K
-
-#ifndef CONFIG_SPL_BSS_MAX_SIZE
-#define CONFIG_SPL_BSS_MAX_SIZE		SZ_2K
-#endif
-
-#if CONFIG_IS_ENABLED(USB_SUPPORT)
-#define CONFIG_SYS_USB_FAT_BOOT_PARTITION	1
-#define CONFIG_SPL_FS_LOAD_PAYLOAD_NAME		"u-boot"
-#endif
-
-#endif /* CONFIG_SPL_BUILD */
+/* Initial environment variables */
+#define CFG_EXTRA_ENV_SETTINGS		\
+	BOOTENV \
+	"scriptaddr=" __stringify(CONFIG_SYS_LOAD_ADDR) "\0" \
+	"kernel_addr_r=" __stringify(CONFIG_SYS_LOAD_ADDR) "\0" \
+	"image=Image\0" \
+	"console=ttymxc1,115200 earlycon=ec_imx6q,0x30890000,115200\0" \
+	"fdt_addr_r=0x43000000\0"			\
+	"boot_fdt=try\0" \
+	"fdtfile=" CONFIG_DEFAULT_FDT_FILE "\0" \
+	"initrd_addr=0x43800000\0"		\
+	"bootm_size=0x10000000\0" \
+	"mmcpart=1\0" \
+	"mmcroot=/dev/mmcblk0p2 rootwait rw\0" \
 
 /* Link Definitions */
 
 #define CFG_SYS_SDRAM_BASE           0x40000000
 
 #define CFG_SYS_INIT_RAM_ADDR        CFG_SYS_SDRAM_BASE
-#define CFG_SYS_INIT_RAM_SIZE        SZ_2M
-#define CONFIG_SYS_INIT_SP_OFFSET \
-	(CFG_SYS_INIT_RAM_SIZE - GENERATED_GBL_DATA_SIZE)
-#define CONFIG_SYS_INIT_SP_ADDR \
-	(CFG_SYS_INIT_RAM_ADDR + CONFIG_SYS_INIT_SP_OFFSET)
+#define CFG_SYS_INIT_RAM_SIZE        SZ_512K
 
-#ifdef CONFIG_ARMV8_SEC_FIRMWARE_SUPPORT
-#define CONFIG_SYS_MEM_RESERVE_SECURE	0
-#endif
 
 #define PHYS_SDRAM                   CFG_SYS_SDRAM_BASE
 #define PHYS_SDRAM_SIZE		     SZ_2G /* 2GB DDR */
-
-#ifdef CONFIG_DEBUG_UART
-#define CONFIG_MXC_UART_BASE		CONFIG_DEBUG_UART_BASE
-#endif
-
-#define CONFIG_SYS_FSL_USDHC_NUM	3
-#define CONFIG_SYS_FLS_ESDHC_ADDR	0
 
 #endif
